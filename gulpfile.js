@@ -7,7 +7,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 
 // PATHS
-const pathWampLocalhost = 'learning/others/project-gulp/'
+const pathWampLocalhost = 'personal/gulp-config/'
 
 const pathSourceSass = './src/scss/'
 const pathDestCss = './build/css/'
