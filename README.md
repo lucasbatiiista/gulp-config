@@ -1,4 +1,4 @@
-# gulp-config
+# Gulp - Default Configuration
 Default Gulp configuration with Browser Sync and PHP Support
 
 ## How to use
