@@ -46,11 +46,11 @@ task('compileJs', () => {
 
 // WATCH
 task('watchSass', () => {
-  watch('./src/scss/*.scss', series('compileSass'))
+  watch(pathSourceSass + '*.scss', series('compileSass'))
 })
 
 task('watchJs', () => {
-  watch('./src/js/*.js', series('compileJs'))
+  watch(pathSourceJs + '*.js', series('compileJs'))
 })
 
 task('watchPhp', () => {
