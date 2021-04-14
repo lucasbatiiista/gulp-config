@@ -1,0 +1,13 @@
+@import "colors";
+@import "header";
+
+body {
+  margin: 0;
+  padding: 83px 0 0 0;
+  background: $color1;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+p {
+  padding: 5px 20px;
+}
