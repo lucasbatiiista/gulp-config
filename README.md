@@ -3,13 +3,8 @@ Default Gulp configuration with Browser Sync and PHP Support
 
 ## How to use
 
+1. Copy **gulpfile.js** and **package.json** to your folder <br/><br/>
+2. Then run:
 ~~~ html
-npm init
-npm install --save-dev gulp
-
-npm i gulp-sass
-npm i gulp-rename
-npm i gulp-concat
-npm i gulp-sourcemaps
-npm install browser-sync gulp --save-dev
+npm install
 ~~~
