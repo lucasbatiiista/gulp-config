@@ -1,5 +1,5 @@
 {
-  "name": "Gulp Config",
+  "name": "gulp-config",
   "version": "1.0.0",
   "description": "Default Gulp configuration with Browser Sync",
   "main": "index.php",
@@ -8,18 +8,16 @@
   },
   "author": "",
   "license": "ISC",
+  "browserslist": [
+    "defaults"
+  ],
   "devDependencies": {
     "browser-sync": "^2.26.14",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^4.1.0",
-    "node-sass": "^5.0.0"
-  },
-  "browserslist": [
-    "defaults"
-  ],
-  "dependencies": {
+    "node-sass": "^5.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-sourcemaps": "^3.0.0"
   }
