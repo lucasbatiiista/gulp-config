@@ -1,5 +1,6 @@
 # Gulp - Default Configuration
-Default Gulp configuration with Browser Sync and PHP Support
+##### Default Gulp configuration with Browser Sync and PHP Support
+###### (Branch Main uses Wamp or Mamp and Branch Dev uses PHP Inside Server)
 
 ## How to use
 
