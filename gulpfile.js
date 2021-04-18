@@ -1,5 +1,5 @@
 // REQUIREMENTS
-const { task, src, dest, watch, series, parallel } = require('gulp');
+const { src, dest, watch, series, parallel } = require('gulp');
 const sass = require('gulp-sass');
 const rename = require('gulp-rename');
 const concat = require('gulp-concat');
@@ -7,55 +7,59 @@ const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 
 // PATHS
-const pathWampLocalhost = 'personal/gulp-config/'
+const wampProjectFolder = 'personal/gulp-config/'
+const paths = {
+  scss: {
+    src: './src/scss/*.scss',
+    dest: './build/css/'
+  },
+  js: {
+    src: './src/js/*.js',
+    dest: './build/js/'
+  }
+};
 
-const pathSourceSass = './src/scss/'
-const pathDestCss = './build/css/'
-
-const pathSourceJs = './src/js/'
-const pathDestJs = './build/js/'
-
-// BROWSER SYNC
-task('browserSync', () => {
+// BROWSER SYNC WITH PHP INSIDE SERVER
+function sync() {
   browserSync.init({
-    proxy: pathWampLocalhost
+    proxy: wampProjectFolder
   });
-});
+}
 
 // TASKS
-task('compileSass', () => {
-  return src(pathSourceSass + '*.scss')
+function compileSass() {
+  return src(paths.scss.src)
     .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: 'compressed'
     }))
     .pipe(rename({ extname: ".min.css" }))
     .pipe(sourcemaps.write())
-    .pipe(dest(pathDestCss))
+    .pipe(dest(paths.scss.dest))
     .pipe(browserSync.stream());
-});
+}
 
-task('compileJs', () => {
-  return src(pathSourceJs + '*.js')
+function compileJs() {
+  return src(paths.js.src)
     .pipe(sourcemaps.init())
     .pipe(concat('all.js'))
     .pipe(sourcemaps.write())
-    .pipe(dest(pathDestJs))
+    .pipe(dest(paths.js.dest))
     .pipe(browserSync.stream());
-});
+}
 
 // WATCH
-task('watchSass', () => {
-  watch(pathSourceSass + '*.scss', series('compileSass'))
-})
+function watchSass() {
+  watch(paths.scss.src, compileSass)
+}
 
-task('watchJs', () => {
-  watch(pathSourceJs + '*.js', series('compileJs'))
-})
+function watchJs() {
+  watch(paths.js.src, compileJs)
+}
 
-task('watchPhp', () => {
+function watchPhp() {
   watch(['./**/*.html', './**/*.php']).on('change', browserSync.reload);
-})
+}
 
-// DEFAULT
-task('default', series('compileSass', 'compileJs', parallel('browserSync', 'watchSass', 'watchJs', 'watchPhp')))
+// DEFAULT TASK
+exports.default = series(compileSass, compileJs, parallel(sync, watchSass, watchJs, watchPhp))
