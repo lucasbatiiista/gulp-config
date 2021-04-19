@@ -1,9 +1,9 @@
 # Gulp - Default Configuration
 
+![Gulp Symbol](https://github.com/lucasbatiiista/gulp-config/blob/main/gulp-banner.jpg)
+
 Default Gulp configuration with Browser Sync and PHP Support
 ###### (Branch Main uses Wamp or Mamp and Branch Dev uses PHP Inside Server)
-
-![Gulp Symbol](https://github.com/lucasbatiiista/gulp-config/blob/main/gulp-symbol.png)
 
 ## How to use
 
