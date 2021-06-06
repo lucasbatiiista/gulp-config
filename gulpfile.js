@@ -26,6 +26,8 @@ function sync() {
     base: './',
     port: 3000,
     keepalive: true,
+    // suppress all the logging into console of the php server process.
+    stdio: 'ignore',
     // custom PHP locations
     bin: 'C:/wamp64/bin/php/php7.4.0/php.exe',
     ini: 'C:/wamp64/bin/php/php7.4.0/php.ini',
